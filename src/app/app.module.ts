@@ -33,6 +33,8 @@ import { PaymentoptionComponent } from './layout/userlayout/paymentoption/paymen
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './auth.interceptor';
 import { SellerlayoutComponent } from './layout/sellerlayout/sellerlayout.component';
+import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
+
 
 
 @NgModule({

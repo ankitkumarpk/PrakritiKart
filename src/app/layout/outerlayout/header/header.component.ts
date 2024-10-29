@@ -11,9 +11,14 @@ export class HeaderComponent implements OnInit {
   isLoggedIn = false;
   dropdownOpen: boolean = false;
 
+
   constructor(private loginService: LoginService, private router: Router) {
     document.addEventListener('click', this.closeDropdown.bind(this));
+    
   }
+  firstName=localStorage.getItem('firstName');
+  name = this.firstName?.toLocaleUpperCase();
+  
 
   ngOnInit(): void {
     this.isLoggedIn = !!this.loginService.getToken();
