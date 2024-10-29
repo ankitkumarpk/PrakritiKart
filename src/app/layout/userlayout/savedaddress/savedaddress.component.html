@@ -1,0 +1,69 @@
+<div class="main">
+  <div *ngIf="!showForm">
+    <button class="btn btn-primary" (click)="toggleForm()">+ Add New Address</button>
+  </div>
+
+  <!-- Address Form -->
+  <div *ngIf="showForm" class="address-form">
+    <form [formGroup]="addressForm" (ngSubmit)="onSubmit()">
+
+      <div class="form-group">
+        <label for="addressLine1">Full Name</label>
+        <input type="text" id="fullName" formControlName="fullName" required />
+      </div>
+      <div class="form-group">
+        <label for="addressLine1">Phone Number</label>
+        <input type="text" id="phoneNumber" formControlName="phoneNumber" required />
+      </div>
+      <div class="form-group">
+        <label for="addressLine1">Address Line 1</label>
+        <input type="text" id="addressLine1" formControlName="addressLine1" required />
+      </div>
+
+      <div class="form-group">
+        <label for="addressLine2">Address Line 2</label>
+        <input type="text" id="addressLine2" formControlName="addressLine2" />
+      </div>
+
+      <div class="form-group">
+        <label for="city">City</label>
+        <input type="text" id="city" formControlName="city" required />
+      </div>
+
+      <div class="form-group">
+        <label for="state">State</label>
+        <input type="text" id="state" formControlName="state" required />
+      </div>
+
+      <div class="form-group">
+        <label for="zipCode">Postal Code</label>
+        <input type="text" id="zipCode" formControlName="zipCode" required />
+      </div>
+
+      <div class="form-group">
+        <label for="country">Country</label>
+        <input type="text" id="country" formControlName="country" required />
+      </div>
+
+      <div class="button-group">
+        <button type="submit" class="btn btn-success">Save</button>
+        <button type="button" class="btn btn-secondary" (click)="cancelForm()">Cancel</button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Existing Address List -->
+  <div class="container1" *ngFor="let address of AddressList; let i = index">
+    <div class="data">
+      <span class="address">
+       {{address.fullName}}, {{ address.addressLine1 }} {{ address.addressLine2 }}, {{ address.city }},
+        {{ address.state }}, {{ address.zipCode }}, {{ address.country }}, {{address.phoneNumber}}
+      </span>
+    </div>
+    
+    <div class="databtn">
+      <button class="btn btn-outline-secondary" (click)="deleteAddress(i)">Delete</button>
+      <button class="btn btn-outline-secondary" (click)="editAddress(i)">Edit</button>
+    </div>
+  </div>
+</div>

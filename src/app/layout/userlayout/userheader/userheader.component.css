@@ -1,0 +1,7 @@
+.header {
+    grid-row: 1 / 2;
+    background-color: #00773a !important;
+    color: white;
+    padding: 10px;
+    text-align: center;
+  }

@@ -1,0 +1,60 @@
+.form-control {
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary {
+    padding: 10px 20px;
+    border-radius: 0.5rem;
+}
+
+.bg-light {
+    background-color: #f8f9fa !important; /* Light background for the form */
+}
+
+.shadow {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+    font-family: 'Arial', sans-serif; /* Customize font */
+    font-weight: bold;
+}
+.form-control {
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    transition: box-shadow 0.3s ease; /* Smooth shadow transition */
+}
+
+.form-control:focus {
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* Deeper shadow on focus */
+    border-color: #007bff; /* Change border color on focus */
+}
+
+.btn-primary {
+    padding: 10px 20px;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add shadow to button */
+    transition: all 0.3s ease; /* Smooth transition for button */
+}
+
+.btn-primary:hover {
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* Deeper shadow on hover */
+}
+
+.shadow {
+    box-shadow: 0 10px 20px 10px rgba(0, 0, 0, 0.2); /* Stronger shadow for the form */
+}
+
+.bg-light {
+    background-color: #f8f9fa !important; /* Light background for the form */
+}
+
+h2 {
+    font-family: 'Arial', sans-serif; /* Customize font */
+    font-weight: bold;
+}
+
+.container {
+    box-shadow: 0 10px 40px 10px rgba(0, 0, 0, 0.2); /* Stronger shadow for the form */
+}

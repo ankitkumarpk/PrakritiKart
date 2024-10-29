@@ -1,18 +1,74 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HeaderComponent } from './layout/outerlayout/header/header.component';
+import { FooterComponent } from './layout/outerlayout/footer/footer.component';
+import { SidebarComponent } from './layout/outerlayout/sidebar/sidebar.component';
+import { HomeComponent } from './outer/home/home.component';
+import { AboutComponent } from './outer/about/about.component';
+import { ContactComponent } from './outer/contact/contact.component';
+import { NgForm, ReactiveFormsModule } from '@angular/forms';
+import { OuterlayoutComponent } from './layout/outerlayout/applayout.component';
+import { CommonModule } from '@angular/common';
+import { LoginComponent } from './userauth/login/login.component';
+import { SignupComponent } from './userauth/signup/signup.component';
+import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatButtonModule } from '@angular/material/button';
+import { FormsModule } from '@angular/forms'; // Import FormsModule
+
+import { CommonheaderComponent } from './outer/commonheader/commonheader.component';
+import { CommonfooterComponent } from './outer/commonfooter/commonfooter.component';
+import { UserlayoutComponent } from './layout/userlayout/userlayout.component';
+import { UserheaderComponent } from './layout/userlayout/userheader/userheader.component';
+import { UserfooterComponent } from './layout/userlayout/userfooter/userfooter.component';
+import { UsersidebarComponent } from './layout/userlayout/usersidebar/usersidebar.component';
+import { UserorderComponent } from './layout/userlayout/userorder/userorder.component';
+import { AccountsettingComponent } from './layout/userlayout/accountsetting/accountsetting.component';
+import { SavedaddressComponent } from './layout/userlayout/savedaddress/savedaddress.component';
+import { PaymentoptionComponent } from './layout/userlayout/paymentoption/paymentoption.component';
+
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from './auth.interceptor';
+import { SellerlayoutComponent } from './layout/sellerlayout/sellerlayout.component';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeaderComponent,
+    FooterComponent,
+    SidebarComponent,
+    HomeComponent,
+    AboutComponent,
+    ContactComponent,
+    OuterlayoutComponent,
+    LoginComponent,
+    SignupComponent,
+   
+    CommonheaderComponent,
+    CommonfooterComponent,
+    UserlayoutComponent,
+    UserheaderComponent,
+    UserfooterComponent,
+    UsersidebarComponent,
+    UserorderComponent,
+    AccountsettingComponent,
+    SavedaddressComponent,
+    PaymentoptionComponent,
+    SellerlayoutComponent,
+    
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
+  imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule, CommonModule, HttpClientModule,BrowserAnimationsModule,MatMenuModule,MatButtonModule],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+  }
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

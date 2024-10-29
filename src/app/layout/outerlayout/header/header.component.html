@@ -1,0 +1,70 @@
+<nav class="navbar navbar-expand-lg bg-custom text-white fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">
+      <img
+        src="assets/logo.svg"
+        alt="Brand Logo"
+        width="180"
+        height="55"
+        class="d-inline-block align-text-top"
+        style="margin-right: 20px"
+      />
+    </a>
+
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarTogglerDemo03"
+      aria-controls="navbarTogglerDemo03"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active text-white" aria-current="page" routerLink="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" routerLink="about">About us</a>
+        </li>
+      </ul>
+
+      <form class="d-flex me-3">
+        <input
+          class="form-control me-2"
+          type="search"
+          placeholder="Search"
+          aria-label="Search"
+        />
+        <button class="btn btn-success text-white" type="submit">Search</button>
+      </form>
+
+      <div *ngIf="isLoggedIn; else guestLinks">
+        <!-- <ngb-dropdown>
+          <button class="btn btn-secondary" ngbDropdownToggle>
+            Dropdown button
+          </button>
+          <div ngbDropdownMenu>
+            <button class="dropdown-item" ngbDropdownItem>Action</button>
+            <button class="dropdown-item" ngbDropdownItem>Another action</button>
+            <button class="dropdown-item" ngbDropdownItem>Something else here</button>
+          </div>
+        </ngb-dropdown> -->
+        
+        </div>
+
+      <!-- Guest links (Login & Sign Up) -->
+      <ng-template #guestLinks>
+        <button class="btn btn-primary text-white ms-2" routerLink="login/user" type="button">Login</button>
+        <button class="btn btn-primary text-white ms-2" routerLink="signup/user" type="button">Sign up</button>
+      </ng-template>
+    </div>
+  </div>
+</nav>

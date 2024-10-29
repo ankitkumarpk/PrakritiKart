@@ -1,0 +1,78 @@
+<div class="container">
+  <h2>Login</h2>
+
+  <!-- Display error message if loginFailed is true -->
+  <div *ngIf="loginFailed" class="alert alert-danger" role="alert">
+    Login email or password is incorrect or invalid User Type.
+  </div>
+
+  <br>
+  <form
+    [formGroup]="loginForm"
+    (ngSubmit)="onSubmit()"
+    name="User registration"
+  >
+
+  <div class="user-type-selection">
+    
+    <div class="card-container">
+      <label class="card" >
+        <input type="radio" formControlName="userType" value="Customer" name="userType" />
+        <div class="card-content">
+          <p>Login as Customer</p>
+          
+        </div>
+      </label>
+      <label class="card" >
+        <input type="radio" formControlName="userType" value="Seller" name="userType" />
+        <div class="card-content">
+          <p>Login as Seller</p>
+          
+        </div>
+      </label>
+    </div>
+  </div>
+  
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input
+        type="email"
+        id="email"
+        formControlName="email"
+        class="form-control"
+        [ngClass]="{ 'is-invalid': email?.invalid && email?.touched }"
+        [placeholder]="
+          email?.invalid && email?.touched
+            ? 'Email is required'
+            : 'Enter email id'
+        "
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="password">Password*</label>
+      <input
+        type="password"
+        id="password"
+        formControlName="password"
+        class="form-control"
+        [ngClass]="{ 'is-invalid': password?.invalid && password?.touched }"
+        [placeholder]="
+          password?.invalid && password?.touched
+            ? 'Password is required'
+            : 'Enter Password'
+        "
+      />
+    </div>
+
+    <br>
+    <button type="submit" class="btn btn-primary">Log in</button>
+
+    <!-- Sign In Link -->
+    <div class="mt-3">
+      <p>Don't have an account? 
+        <a routerLink="/signup/user" class="btn btn-link">Sign up</a>
+      </p>
+    </div>
+  </form>
+</div>

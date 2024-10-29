@@ -1,0 +1,83 @@
+/* app-layout.component.css */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+}
+
+.layout {
+  display: grid;
+  grid-template-rows: auto 1fr auto; /* Header, Main content, Footer */
+  height: 100vh;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr 3fr; /* Sidebar 1/4 and Main content 3/4 */
+}
+
+.sidebar {
+  background-color: #f0f0f0;
+  padding: 20px;
+  border-right: 1px solid #ddd; /* Light border for separation */
+}
+
+.main-content {
+  padding: 20px;
+  background-color: #fff; /* White background for main content */
+  overflow-y: auto; /* Allow scrolling if content is too long */
+}
+
+.footer {
+  background-color: #00773a;
+  color: white;
+  text-align: center;
+  padding: 10px;
+}
+
+li.card {
+  list-style: none; /* Remove bullet points */
+  background-color: #fff; /* Card background */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  padding: 16px; /* Padding inside the card */
+  margin: 10px 0; /* Space between cards */
+  border: 1px solid #ddd; /* Light border */
+  transition: transform 0.2s, box-shadow 0.2s; /* Smooth hover effect */
+}
+
+li.card:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
+  background-color: #ceefff; /* Light background on hover */
+}
+
+li.card a {
+  text-decoration: none; /* Remove underline from links */
+  color: #333; /* Text color */
+  font-weight: 600; /* Bold text */
+  display: block; /* Make link fill the card */
+}
+
+a:hover {
+  color: #007bff; /* Link hover color */
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .content {
+    grid-template-columns: 1fr; /* Stack sidebar and main content */
+  }
+
+  .sidebar {
+    border-right: none; /* Remove border on smaller screens */
+    border-bottom: 1px solid #ddd; /* Add bottom border */
+  }
+
+  .main-content {
+    padding: 10px; /* Adjust padding on smaller screens */
+  }
+
+  li.card {
+    margin: 8px 0; /* Reduce margin */
+  }
+}

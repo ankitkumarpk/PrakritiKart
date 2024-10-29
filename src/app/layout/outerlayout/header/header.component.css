@@ -1,0 +1,124 @@
+/* Navbar Styles */
+.bg-custom {
+  background-color: #00a651 !important;
+}
+
+.navbar {
+  padding: 0.5rem 1rem; /* Maintain existing padding */
+  height: 60px; /* Set a fixed height for the navbar */
+  overflow: hidden; /* Prevent logo from affecting height */
+}
+
+.navbar-brand img {
+  max-width: 100%;
+  height: auto;
+  max-height: 50px; /* Adjust logo height */
+}
+
+.nav-link {
+  color: white !important;
+  transition: all 0.3s;
+  padding: 10px 15px; /* Add padding for card effect */
+  border-radius: 5px; /* Rounded corners */
+  position: relative; /* For absolute positioning of the pseudo-element */
+}
+
+/* Card Hover Effect */
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 5px; /* Height of the underline effect */
+  background-color: rgba(255, 255, 255, 0.5); /* Light hover effect */
+  transform: scaleX(0); /* Start with no scale */
+  transition: transform 0.3s ease; /* Smooth transition */
+}
+
+.nav-link:hover {
+  background-color: white; /* Background change to white on hover */
+  color: #00a651 !important; /* Change text color to green on hover */
+}
+
+.nav-link:hover::after {
+  transform: scaleX(1); /* Scale to full width on hover */
+}
+
+/* Other Button Styles */
+.navbar-toggler {
+  border: none; /* Remove border */
+}
+
+/* Search Form */
+.form-control {
+  width: 250px; /* Fixed width for better aesthetics */
+}
+
+.btn-success {
+  background-color: #28a745; /* Bootstrap success color */
+  border: none; /* Remove border */
+}
+
+.btn-success:hover {
+  background-color: #218838; /* Darker green on hover */
+}
+
+/* User Profile Dropdown */
+.user-profile-dropdown {
+  position: relative; /* Position for absolute child elements */
+}
+
+.user-dropdown-menu {
+  position: absolute; /* Absolute positioning */
+  top: 100%; /* Position directly below the toggle */
+  right: 0; /* Align to the right */
+  margin-top: 5px; /* Spacing from the toggle */
+  display: none; /* Hidden by default */
+  z-index: 1050; /* Higher z-index for visibility */
+  min-width: 160px; /* Set minimum width */
+  background-color: white; /* White background for contrast */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+  border-radius: 5px; /* Rounded corners */
+}
+
+/* Show the dropdown when active */
+.user-profile-dropdown.show .user-dropdown-menu {
+  display: block; /* Show dropdown */
+}
+
+/* Dropdown Item Styles */
+.dropdown-item {
+  color: #000; /* Text color */
+  padding: 10px 15px; /* Padding for items */
+  transition: background-color 0.3s; /* Smooth hover transition */
+}
+
+.dropdown-item:hover {
+  background-color: rgba(0, 166, 81, 0.1); /* Light green on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 576px) {
+  .navbar {
+    padding: 0.5rem; /* Reduce padding on very small screens */
+  }
+
+  .navbar-brand img {
+    max-height: 45px; /* Adjust logo height for small screens */
+  }
+
+  .user-dropdown-menu {
+    min-width: 100%; /* Full width on small screens */
+  }
+}
+
+/* Profile Toggle Style */
+.profile-toggle {
+  cursor: pointer; /* Pointer cursor for toggle */
+}
+
+/* Ensure dropdown visibility */
+.user-dropdown-menu.show {
+  display: block; /* Show dropdown */
+}

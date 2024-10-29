@@ -1,0 +1,252 @@
+/* General container */
+.home-container {
+    font-family: 'Arial', sans-serif;
+    padding: 20px;
+    background-color: #f9f9f9;
+  }
+  
+  /* Hero Section */
+  .hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fff3e0;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  .hero-content h1 {
+    color: #4a7c59;
+    font-size: 3rem;
+  }
+  
+  .hero-content p {
+    color: #666;
+    font-size: 1.2rem;
+    max-width: 400px;
+  }
+  
+  .hero-image .banner-img {
+    max-width: 500px;
+    border-radius: 10px;
+  }
+  
+  /* History Section */
+  .history-section {
+    margin: 40px 0;
+    text-align: center;
+  }
+  
+  .history-section h2 {
+    font-size: 2.5rem;
+    color: #4a7c59;
+  }
+  
+  .history-section p {
+    font-size: 1.1rem;
+    color: #666;
+    margin: 10px auto;
+    max-width: 800px;
+  }
+  
+  /* Ayurveda Images Section */
+  .ayurveda-images-section {
+    margin: 40px 0;
+    display: flex;
+    justify-content: space-evenly;
+  }
+  
+  .ayurveda-gallery {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .gallery-item {
+    text-align: center;
+  }
+  
+  .gallery-img {
+    width: 250px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  
+  .gallery-item p {
+    margin-top: 10px;
+    font-size: 1.1rem;
+    color: #333;
+  }
+  
+  /* Featured Products Section */
+  .featured-products-section {
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  .featured-products-section h2 {
+    font-size: 2rem;
+    color: #4a7c59;
+  }
+  
+  .featured-products-section p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: #666;
+  }
+  
+  .product-categories {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .category-link {
+    background-color: #4a7c59;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1.1rem;
+  }
+  
+  .category-link:hover {
+    background-color: #3a6b49;
+  }
+  .history-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .history-section h2 {
+    margin-bottom: 20px;
+  }
+  
+  .history-section p {
+    max-width: 600px;
+    margin-bottom: 15px;
+    line-height: 1.6;
+  }
+  /* General Styling */
+.home-container {
+  padding: 20px;
+}
+
+/* Hero Section */
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+.hero-content {
+  max-width: 50%;
+}
+
+.hero-image {
+  max-width: 45%;
+}
+
+.hero img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+/* History Section */
+.history-section {
+  margin: 30px 0;
+}
+
+.history-section h2 {
+  font-size: 2rem;
+}
+
+.history-section p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+/* Ayurveda Images Section */
+.ayurveda-gallery {
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.gallery-item {
+  width: 30%;
+  text-align: center;
+}
+
+.gallery-img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+/* Featured Products Section */
+.featured-products-section {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.product-categories {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+  gap: 10px;
+}
+
+.category-link {
+  padding: 10px 20px;
+  background-color: #f2a60b;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+/* Mobile Styles */
+@media only screen and (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-content {
+    max-width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .hero-image {
+    max-width: 100%;
+  }
+
+  .history-section h2 {
+    font-size: 1.8rem;
+  }
+
+  .history-section p {
+    font-size: 0.9rem;
+  }
+
+  .ayurveda-gallery {
+    flex-direction: column;
+  }
+
+  .gallery-item {
+    width: 100%;
+  }
+
+  .product-categories {
+    flex-direction: column;
+    gap: 15px;
+  }
+}

@@ -1,0 +1,105 @@
+.container {
+  max-width: 400px;
+  margin: auto;
+  padding: 20px;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  text-align: center;
+  color: #333;
+}
+
+.user-type-selection {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.card-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card {
+  background-color: #f7f7f7;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 45%;
+}
+
+.card:hover {
+  background-color: #e0f7fa; /* Light blue background on hover */
+  border-color: #00acc1; /* Darker border on hover */
+  transform: scale(1.05);
+}
+
+.card-content p {
+  margin: 0;
+  font-weight: bold;
+  color: #555;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  transition: border 0.3s ease;
+}
+
+.form-control:focus {
+  border-color: #00acc1; /* Change border color on focus */
+}
+
+.is-invalid {
+  border-color: #e57373; /* Red border for invalid inputs */
+}
+
+.btn {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btn-primary {
+  background: linear-gradient(90deg, #00acc1, #00897b); /* Gradient color */
+}
+
+.btn-primary:hover {
+  background: linear-gradient(90deg, #00897b, #00acc1); /* Reverse gradient on hover */
+}
+
+.alert {
+  margin-bottom: 15px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.mt-3 {
+  margin-top: 20px;
+}
+
+.btn-link {
+  color: #00acc1;
+  text-decoration: none;
+}
+
+.btn-link:hover {
+  text-decoration: underline;
+}
