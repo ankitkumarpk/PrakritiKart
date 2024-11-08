@@ -11,6 +11,14 @@ import { AuthGuard } from './auth.guard';
 import { UserorderComponent } from './layout/userlayout/userorder/userorder.component';
 import { SavedaddressComponent } from './layout/userlayout/savedaddress/savedaddress.component';
 import { RoleGuard } from './guards/roleguard.guard';
+import { SellerlayoutComponent } from './layout/sellerlayout/sellerlayout.component';
+import { CustomerfeedbackComponent } from './layout/sellerlayout/customerfeedback/customerfeedback.component';
+import { ManageordersComponent } from './layout/sellerlayout/manageorders/manageorders.component';
+import { ManageproductComponent } from './layout/sellerlayout/manageproduct/manageproduct.component';
+import { SellerinfoComponent } from './layout/sellerlayout/sellerinfo/sellerinfo.component';
+import { SupportComponent } from './layout/sellerlayout/support/support.component';
+import { SellerheaderComponent } from './layout/sellerlayout/sellerheader/sellerheader.component';
+import { SellerfooterComponent } from './layout/sellerlayout/sellerfooter/sellerfooter.component';
 
 const routes: Routes = [
   {
@@ -32,7 +40,8 @@ const routes: Routes = [
   {
     path: 'user',
     component: UserlayoutComponent,
-    canActivate: [AuthGuard , RoleGuard], data: { expectedRole: 'Customer' }, // Use layout for all routes
+    canActivate: [AuthGuard, RoleGuard],
+    data: { expectedRole: 'Customer' }, // Use layout for all routes
     children: [
       // { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: '', component: UserorderComponent },
@@ -41,6 +50,22 @@ const routes: Routes = [
       { path: 'home', component: HomeComponent },
       { path: 'about', component: AboutComponent },
       { path: 'contact', component: ContactComponent },
+    ],
+  },
+
+  {
+    path: 'seller',
+    component: SellerlayoutComponent,
+    canActivate: [AuthGuard, RoleGuard],
+    data: { expectedRole: 'Seller' },
+    children: [
+      { path: 'feedback', component: CustomerfeedbackComponent },
+      { path: 'orders', component: ManageordersComponent },
+      { path: 'products', component: ManageproductComponent },
+      { path: 'info', component: SellerinfoComponent },
+      { path: 'support', component: SupportComponent },
+      {path:'header',component:SellerheaderComponent},
+      {path: 'footer', component:SellerfooterComponent}
     ],
   },
 ];

@@ -11,7 +11,5 @@ export class SingupService {
 
   constructor(private http: HttpClient) { }
 
-  register(signupData: Signup): Observable<any> {
-    return this.http.post<any>(`${this.apiUrl}/UserAuth/signup`, signupData);
-  }
+  
 }

@@ -1,0 +1,86 @@
+<div *ngIf="!showForm" class="showButton d-flex justify-content-center align-items-center">
+    <button class="btn btn-primary" (click)="toggleForm()">+Add Products</button>
+  </div>
+  
+  <div *ngIf="showForm" class="show-form d-flex justify-content-center align-items-center">
+    <form [formGroup]="productForm" (ngSubmit)="onSubmit()" class="product-form">
+      <div class="row">
+        <div class="col-12 col-md-6">
+          <label for="productName">Product Name:</label>
+          <input formControlName="productName" id="productName" type="text" />
+          <div *ngIf="productForm.get('productName')?.invalid && productForm.get('productName')?.touched" class="text-danger">
+            Product Name is required.
+          </div>
+        </div>
+  
+        <div class="col-12 col-md-6">
+          <label for="category">Category:</label>
+          <select formControlName="category" id="category">
+            <option value="" disabled selected>Select a category</option>
+            <option value="Arishtam">Arishtam</option>
+            <option value="Bhasmam">Bhasmam</option>
+            <option value="Churnam">Churnam</option>
+            <option value="Ghritam">Ghritam</option>
+            <option value="Granules">Granules</option>
+            <option value="Gulika">Gulika</option>
+            <option value="Kashayam">Kashayam</option>
+            <option value="Kwatham">Kwatham</option>
+            <option value="Leham">Leham</option>
+            <option value="Tailam">Tailam</option>
+          </select>
+          <div *ngIf="productForm.get('category')?.invalid && productForm.get('category')?.touched" class="text-danger">
+            Category is required.
+          </div>
+        </div>
+      </div>
+  
+      <div class="row">
+        <div class="col-12 col-md-6">
+          <label for="price">Price:</label>
+          <input formControlName="price" id="price" type="number" />
+          <div *ngIf="productForm.get('price')?.hasError('required') && productForm.get('price')?.touched" class="text-danger">
+            Price is required.
+          </div>
+          <div *ngIf="productForm.get('price')?.hasError('min') && productForm.get('price')?.touched" class="text-danger">
+            Price cannot be less than 0.
+          </div>
+        </div>
+  
+        <div class="col-12 col-md-6">
+          <label for="quantity">Quantity:</label>
+          <input formControlName="quantity" id="quantity" type="number" />
+          <div *ngIf="productForm.get('quantity')?.hasError('required') && productForm.get('quantity')?.touched" class="text-danger">
+            Quantity is required.
+          </div>
+          <div *ngIf="productForm.get('quantity')?.hasError('min') && productForm.get('quantity')?.touched" class="text-danger">
+            Quantity cannot be less than 0.
+          </div>
+        </div>
+      </div>
+  
+      <label for="description">Description:</label>
+      <textarea formControlName="description" id="description"></textarea>
+  
+      <label for="ingredients">Ingredients:</label>
+      <textarea formControlName="ingredients" id="ingredients"></textarea>
+  
+      <label for="dosageInstructions">Dosage Instruction:</label>
+      <textarea formControlName="dosageInstructions" id="dosageInstructions"></textarea>
+  
+      <label for="images">Product Images:</label>
+      <input type="file" (change)="onImageSelected($event)" multiple />
+  
+      <div class="image-preview" *ngIf="imagePreviews.length > 0">
+        <p>Selected Images:</p>
+        <div class="preview-container">
+          <div *ngFor="let preview of imagePreviews" class="preview-image">
+            <img [src]="preview" alt="Image Preview" />
+          </div>
+        </div>
+      </div>
+  
+      <button class="btn btn-success" type="submit">Submit</button>
+      <button class="btn btn-warning" (click)="toggleForm()">Cancel</button>
+    </form>
+  </div>
+  

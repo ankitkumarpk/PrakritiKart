@@ -1,0 +1,58 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f4f4f4;
+  }
+  
+  .menu {
+    background-color: #f0f0f0; /* Light background for the menu */
+    padding: 20px;
+    width: 250px; /* Fixed width for desktop */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    margin: 20px; /* Space around the menu */
+  }
+  
+  .menu ul {
+    list-style-type: none; /* Remove bullets */
+    padding: 0; /* Remove padding */
+  }
+  
+  li.card {
+    background-color: #fff; /* Card background */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    padding: 16px; /* Padding inside the card */
+    margin: 10px 0; /* Space between cards */
+    border: 1px solid #ddd; /* Light border */
+    transition: box-shadow 0.2s, background-color 0.2s; /* Smooth hover effect */
+  }
+  
+  li.card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
+    background-color: #ceefff; /* Light background on hover */
+  }
+  
+  li.card a {
+    text-decoration: none; /* Remove underline from links */
+    color: #333; /* Text color */
+    font-weight: 600; /* Bold text */
+  }
+  
+  a:hover {
+    color: #007bff; /* Link hover color */
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    .menu {
+      width: 100%; /* Full width on small screens */
+      margin: 10px 0; /* Adjust margin */
+    }
+  
+    li.card {
+      padding: 12px; /* Reduce padding on smaller screens */
+      margin: 8px 0; /* Reduce margin */
+    }
+  }
+  

@@ -108,7 +108,9 @@ export class SavedaddressComponent implements OnInit {
   deleteAddress(index: number) {
     const addressID = this.AddressList[index].addressId;
     this.appservice.deleteAddress(addressID).subscribe({
-      next: () => {},
+      next: () => {
+        this.loadAllAddress();
+      },
       error: () => console.log('delete failed'),
     });
     this.loadAllAddress();

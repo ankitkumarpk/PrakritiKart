@@ -1,15 +1,15 @@
 <nav class="navbar navbar-expand-lg bg-custom text-white fixed-top">
     <div class="container-fluid">
-        <a class="navbar-brand" href="/">
+        <a class="navbar-brand" routerLink="/seller">
             <img src="assets/logo.svg" alt="Brand Logo" width="180" height="55" class="d-inline-block align-text-top" />
         </a>
   
         <!-- Toggler button and Cart Icon for mobile view -->
         <div class="d-flex align-items-center">
             <!-- Cart Icon (visible on mobile) -->
-            <a routerLink="/cart" class="d-lg-none me-2">
+            <!-- <a routerLink="/cart" class="d-lg-none me-2">
                 <img src="assets/cart.svg" alt="Cart" width="30" height="30" /><span>{{cartCount}}</span>
-            </a>
+            </a> -->
             <!-- Toggler Button -->
             <button
                 class="navbar-toggler"
@@ -26,13 +26,13 @@
         <div class="collapse navbar-collapse" [ngClass]="{'show': !isCollapsed}" id="navbarTogglerDemo03">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active text-white" aria-current="page" routerLink="/">Home</a>
+                    <a class="nav-link active text-white" aria-current="page" routerLink="/seller">Homeok</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-white" href="#">Link</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" routerLink="about">About us</a>
+                    <a class="nav-link text-white" routerLink="#">About us</a>
                 </li>
             </ul>
   
@@ -42,11 +42,11 @@
             </form>
 
             <!-- Cart Icon (visible on desktop) -->
-            <div class="cart-icon d-none d-lg-flex me-3">
+            <!-- <div class="cart-icon d-none d-lg-flex me-3">
                 <a routerLink="/cart">
                     <img src="assets/cart.svg" alt="Cart" width="30" height="30" />({{cartCount}})
                 </a>
-            </div>
+            </div> -->
   
             <div *ngIf="isLoggedIn; else guestLinks" class="user-profile">
                 <div class="userlogo">
@@ -56,7 +56,7 @@
                     </button>
                 </div>
                 <mat-menu #menu="matMenu">
-                    <button mat-menu-item routerLink="/user">Dashboard &#9874;</button>
+                    <button mat-menu-item routerLink="/seller">Dashboard &#9874;</button>
                     <button mat-menu-item (click)="logout()">Logout &#10140;</button>
                 </mat-menu>
             </div>

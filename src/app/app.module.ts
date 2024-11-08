@@ -34,6 +34,14 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './auth.interceptor';
 import { SellerlayoutComponent } from './layout/sellerlayout/sellerlayout.component';
 import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
+import { SellerheaderComponent } from './layout/sellerlayout/sellerheader/sellerheader.component';
+import { SellerfooterComponent } from './layout/sellerlayout/sellerfooter/sellerfooter.component';
+import { SellersidebarComponent } from './layout/sellerlayout/sellersidebar/sellersidebar.component';
+import { ManageproductComponent } from './layout/sellerlayout/manageproduct/manageproduct.component';
+import { ManageordersComponent } from './layout/sellerlayout/manageorders/manageorders.component';
+import { SellerinfoComponent } from './layout/sellerlayout/sellerinfo/sellerinfo.component';
+import { CustomerfeedbackComponent } from './layout/sellerlayout/customerfeedback/customerfeedback.component';
+import { SupportComponent } from './layout/sellerlayout/support/support.component';
 
 
 
@@ -61,9 +69,17 @@ import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
     SavedaddressComponent,
     PaymentoptionComponent,
     SellerlayoutComponent,
+    SellerheaderComponent,
+    SellerfooterComponent,
+    SellersidebarComponent,
+    ManageproductComponent,
+    ManageordersComponent,
+    SellerinfoComponent,
+    CustomerfeedbackComponent,
+    SupportComponent,
     
   ],
-  imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule, CommonModule, HttpClientModule,BrowserAnimationsModule,MatMenuModule,MatButtonModule],
+  imports: [NgbCollapseModule,BrowserModule, AppRoutingModule, ReactiveFormsModule, CommonModule, HttpClientModule,BrowserAnimationsModule,MatMenuModule,MatButtonModule],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,

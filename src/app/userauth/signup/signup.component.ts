@@ -28,22 +28,35 @@ export class SignupComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  constructor(private signupService: SingupService) {}
+  constructor(
+    private signupService: SingupService,
+    private loginService: LoginService
+  ) {}
 
   onSubmit() {
     // const studentData: Signup = this.signupForm.value;
-    const studentData: Signup = this.signupForm.value as Signup;
+    const signupData: Signup = this.signupForm.value as Signup;
 
     if (this.signupForm.invalid) {
       this.signupForm.markAllAsTouched();
     } else {
-      this.signupService.register(studentData).subscribe({
-        next: () => {
-          console.log(studentData);
-          this.signupForm.reset();
-        },
-        error: () => console.log('registration failed'),
-      });
+      if (this.signupForm.value.userType == 'Customer') {
+        this.loginService.customerRegister(signupData).subscribe({
+          next: () => {
+            console.log(signupData);
+            this.signupForm.reset();
+          },
+          error: () => console.log('registration failed'),
+        });
+      } else if (this.signupForm.value.userType == 'Seller') {
+        this.loginService.sellerRegister(signupData).subscribe({
+          next: () => {
+            console.log(signupData);
+            this.signupForm.reset();
+          },
+          error: () => console.log('seller registration failed'),
+        });
+      }
     }
   }
 

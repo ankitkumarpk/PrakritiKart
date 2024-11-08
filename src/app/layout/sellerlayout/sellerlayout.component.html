@@ -1,1 +1,24 @@
-<p>sellerlayout works!</p>
+<!-- app-layout.component.html -->
+<app-sellerheader></app-sellerheader>
+<div class="layout">
+  <!-- Header -->
+  
+
+  <!-- Main Content: Sidebar and Router Outlet -->
+  <div class="content">
+    <!-- Sidebar (1/4 width) -->
+    <div class="sidebar">
+      <app-sellersidebar></app-sellersidebar>
+    </div>
+
+    <!-- Router Outlet (3/4 width) -->
+    <main class="main-content">
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <app-sellerfooter></app-sellerfooter>
+  </footer>
+</div>

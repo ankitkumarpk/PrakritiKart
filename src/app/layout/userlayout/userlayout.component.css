@@ -12,8 +12,8 @@ body {
 }
 
 .content {
-  display: grid;
-  grid-template-columns: 1fr 3fr; /* Sidebar 1/4 and Main content 3/4 */
+  display: flex;
+  flex: 1;
 }
 
 .sidebar {
@@ -29,10 +29,10 @@ body {
 }
 
 .footer {
-  background-color: #00773a;
+  
   color: white;
   text-align: center;
-  padding: 10px;
+  
 }
 
 li.card {
@@ -74,10 +74,17 @@ a:hover {
   }
 
   .main-content {
-    padding: 10px; /* Adjust padding on smaller screens */
+    flex: 1;
+    padding: 1rem;
+    flex-direction: column; /* Adjust padding on smaller screens */
+    
   }
 
   li.card {
     margin: 8px 0; /* Reduce margin */
   }
+  .content {
+    flex-direction: column;
 }
+}
+

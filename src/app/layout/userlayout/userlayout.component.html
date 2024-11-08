@@ -1,17 +1,14 @@
 <!-- app-layout.component.html -->
 <app-header></app-header>
 <div class="layout">
-  <!-- Header -->
-  <app-userheader></app-userheader>
-
   <!-- Main Content: Sidebar and Router Outlet -->
   <div class="content">
-    <!-- Sidebar (1/4 width) -->
+    <!-- Sidebar (1/4 width on larger screens) -->
     <div class="sidebar">
       <app-usersidebar></app-usersidebar>
     </div>
 
-    <!-- Router Outlet (3/4 width) -->
+    <!-- Router Outlet (3/4 width on larger screens) -->
     <main class="main-content">
       <router-outlet></router-outlet>
     </main>
@@ -19,6 +16,6 @@
 
   <!-- Footer -->
   <footer class="footer">
-    <p>My App Footer</p>
+    <app-userfooter></app-userfooter>
   </footer>
 </div>

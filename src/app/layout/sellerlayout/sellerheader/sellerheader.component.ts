@@ -1,13 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import { LoginService } from '../../../services/auth/login.service';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { LoginService } from '../../../services/auth/login.service';
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  selector: 'app-sellerheader',
+  templateUrl: './sellerheader.component.html',
+  styleUrl: './sellerheader.component.css'
 })
-export class HeaderComponent implements OnInit {
+export class SellerheaderComponent {
   isLoggedIn = false;
   cartCount = 2;
   constructor(private loginService: LoginService, private router: Router) {
@@ -35,4 +35,5 @@ export class HeaderComponent implements OnInit {
     this.isCollapsed = !this.isCollapsed;
   }
   
+
 }

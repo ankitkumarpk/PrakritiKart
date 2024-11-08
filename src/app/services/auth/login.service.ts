@@ -6,6 +6,7 @@ import * as jwt_decode from 'jwt-decode';
 
 
 import { Observable } from 'rxjs';
+import { Signup } from '../../models/signup.model';
 
 @Injectable({
   providedIn: 'root'
@@ -14,10 +15,28 @@ export class LoginService {
   private apiUrl = 'http://localhost:5041/api';
 
   constructor(private http: HttpClient) {}
-  
-  login(email: string, password: string,userType:string): Observable<any> {
-    return this.http.post<any>(`${this.apiUrl}/UserAuth/login`, { email, password ,userType});
+
+  //############ Customer Authentication ##########
+  customerLogin(email: string, password: string,userType:string): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/CustomerAuth/login`, { email, password ,userType});
   }
+
+  customerRegister(signupData: Signup): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/CustomerAuth/signup`, signupData);
+  }
+
+
+  //############ Seller Authentication ##########
+
+  sellerLogin(email: string, password: string,userType:string): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/SellerAuth/login`, { email, password ,userType});
+  }
+
+  sellerRegister(signupData: Signup): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/SellerAuth/signup`, signupData);
+  }
+
+// ############## Extra things #######################
 
   storeToken(token: string): void {
     localStorage.setItem('authToken', token);

@@ -1,0 +1,274 @@
+/* seller-info.component.css */
+.container {
+  max-width: 800px;
+  margin: auto;
+}
+
+.profile-card {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  padding: 30px;
+  max-width: 900px;
+  margin: auto;
+}
+
+.profile-header {
+  text-align: center;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.profile-img-container {
+  position: relative;
+  display: inline-block;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 15px;
+  border: 4px solid #ddd;
+}
+
+.profile-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.edit-icon {
+  position: absolute;
+  bottom: 12px;
+  right: 14px;
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 5px;
+  border-radius: 50%;
+  cursor: pointer;
+  background-color: red !important;
+}
+
+.edit-icon i {
+  color: #333;
+  font-size: 16px;
+}
+
+.profile-details {
+  padding: 20px;
+}
+
+.profile-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.profile-table td {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+  font-size: 14px;
+  color: #333;
+}
+
+.profile-table td strong {
+  color: #6200ea;
+}
+
+.profile-header h3 {
+  font-size: 1.8rem;
+  margin: 10px 0;
+  font-weight: 600;
+}
+
+.profile-header p {
+  font-size: 1.1rem;
+  color: #555;
+}
+
+.table-container {
+  margin-top: 40px;
+}
+
+.btn {
+  border-radius: 25px;
+  padding: 12px 30px;
+  font-size: 16px;
+  margin: 10px 5px;
+}
+
+.btn-primary {
+  background-color: #6200ea;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #4a00b1;
+}
+
+.btn-warning {
+  background-color: #f39c12;
+  border: none;
+}
+
+.btn-warning:hover {
+  background-color: #e67e22;
+}
+
+@media (max-width: 768px) {
+  .profile-card {
+    padding: 20px;
+  }
+
+  .profile-img-container {
+    width: 120px;
+    height: 120px;
+  }
+
+  .profile-image {
+    width: 100%;
+    height: 100%;
+  }
+
+  .profile-header h3 {
+    font-size: 1.5rem;
+  }
+
+  .profile-header p {
+    font-size: 1rem;
+  }
+
+  .profile-table td {
+    font-size: 13px;
+    padding: 8px;
+  }
+}
+/* Ensures the profile card stretches across the full width of the container */
+.table-container {
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.profile-card {
+  width: 100%;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 0;
+}
+
+.profile-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.profile-img-container {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 15px;
+}
+
+.profile-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+
+.edit-icon {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  cursor: pointer;
+  background-color: rgba(0, 110, 255, 0.6);
+  padding: 5px;
+  border-radius: 50%;
+  color: #ffffff;
+  font-size: 16px;
+}
+
+.profile-details {
+  width: 100%;
+}
+
+.profile-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.profile-table td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+  font-size: 16px;
+}
+
+.profile-table td strong {
+  font-weight: bold;
+}
+
+.profile-table tr:last-child td {
+  border-bottom: none;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .profile-card {
+    padding: 15px;
+  }
+
+  .profile-image {
+    width: 120px;
+    height: 120px;
+  }
+
+  .profile-header h3 {
+    font-size: 1.5rem;
+  }
+
+  .profile-table td {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .profile-table td strong {
+    font-size: 16px;
+  }
+
+  .edit-icon {
+    padding: 4px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 576px) {
+  .profile-image {
+    width: 100px;
+    height: 100px;
+  }
+
+  .profile-header h3 {
+    font-size: 1.25rem;
+  }
+
+  .profile-table td {
+    font-size: 12px;
+    padding: 8px;
+  }
+
+  .profile-table td strong {
+    font-size: 14px;
+  }
+
+  .edit-icon {
+    padding: 3px;
+    font-size: 12px;
+  }
+}
+
+.pencil{
+  position: absolute;
+  left: 352px;
+  top: 117px;
+  background: red;
+}
