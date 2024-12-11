@@ -1,0 +1,66 @@
+<div class="product-page">
+  <!-- Left Section -->
+  <div class="product-left">
+    <div class="product-title">
+      <h1>{{product?.productName}}</h1>
+    </div>
+
+    <!-- Product Images Section -->
+    <div class="product-images">
+      <div class="main-image">
+        <img [src]="product?.mainImageUrl" alt="product.productName" (click)="openFullScreen(product?.mainImageUrl)" />
+      </div>
+      <div class="thumbnail-images">
+        <img
+          *ngFor="let image of product?.images"
+          [src]="image.imageUrl"
+          (click)="setMainImage(image)"
+          alt="Product image"
+        />
+      </div>
+    </div>
+
+    <div class="actions">
+      <button class="add-to-cart" (click)="addToCart(product.productId,1)"><b>Add to Cart </b></button>
+      <button class="buy-now" (click)="buyNow(product)"><b>Buy Now</b></button>
+    </div>
+  </div>
+
+  <!-- Right Section -->
+  <div class="product-right">
+    <h2 class="flex justify-center">Details: </h2>
+    <div class="product-details">
+      <table class="product-details-table">
+        <tr>
+          <th>Price</th>
+          <td><b>&#8377; {{ product?.price}}</b></td>
+        </tr>
+        <tr>
+          <th>Category</th>
+          <td>{{ product?.category }}</td>
+        </tr>
+        <tr>
+          <th>Description</th>
+          <td>{{ product?.description}}</td>
+        </tr>
+        <tr>
+          <th>Ingredients</th>
+          <td>{{ product?.ingredients }}</td>
+        </tr>
+        <tr>
+          <th>Dosage Instructions</th>
+          <td>{{ product?.dosageInstructions }}</td>
+        </tr>
+        <tr>
+          <th>Rating</th>
+          <td>{{ product?.rating }} / 5</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- Full-Screen Image Popup -->
+<div *ngIf="isFullScreen" class="fullscreen-popup" (click)="closeFullScreen()">
+  <img [src]="selectedImage" alt="Full-screen product image" class="fullscreen-image"/>
+</div>

@@ -58,7 +58,6 @@ export class LoginService {
   
   logout(): void {
     localStorage.removeItem('authToken');
-   
   }
 
   isAuthenticated(): boolean {

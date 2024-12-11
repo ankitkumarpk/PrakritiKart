@@ -1,252 +1,388 @@
-/* General container */
-.home-container {
-    font-family: 'Arial', sans-serif;
-    padding: 20px;
-    background-color: #f9f9f9;
-  }
-  
-  /* Hero Section */
-  .hero {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: #fff3e0;
-    padding: 20px;
-    border-radius: 10px;
-  }
-  
-  .hero-content h1 {
-    color: #4a7c59;
-    font-size: 3rem;
-  }
-  
-  .hero-content p {
-    color: #666;
-    font-size: 1.2rem;
-    max-width: 400px;
-  }
-  
-  .hero-image .banner-img {
-    max-width: 500px;
-    border-radius: 10px;
-  }
-  
-  /* History Section */
-  .history-section {
-    margin: 40px 0;
-    text-align: center;
-  }
-  
-  .history-section h2 {
-    font-size: 2.5rem;
-    color: #4a7c59;
-  }
-  
-  .history-section p {
-    font-size: 1.1rem;
-    color: #666;
-    margin: 10px auto;
-    max-width: 800px;
-  }
-  
-  /* Ayurveda Images Section */
-  .ayurveda-images-section {
-    margin: 40px 0;
-    display: flex;
-    justify-content: space-evenly;
-  }
-  
-  .ayurveda-gallery {
-    display: flex;
-    gap: 20px;
-  }
-  
-  .gallery-item {
-    text-align: center;
-  }
-  
-  .gallery-img {
-    width: 250px;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 10px;
-  }
-  
-  .gallery-item p {
-    margin-top: 10px;
-    font-size: 1.1rem;
-    color: #333;
-  }
-  
-  /* Featured Products Section */
-  .featured-products-section {
-    text-align: center;
-    margin-top: 50px;
-  }
-  
-  .featured-products-section h2 {
-    font-size: 2rem;
-    color: #4a7c59;
-  }
-  
-  .featured-products-section p {
-    font-size: 1.2rem;
-    margin-bottom: 20px;
-    color: #666;
-  }
-  
-  .product-categories {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-  }
-  
-  .category-link {
-    background-color: #4a7c59;
-    color: #fff;
-    padding: 10px 20px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-size: 1.1rem;
-  }
-  
-  .category-link:hover {
-    background-color: #3a6b49;
-  }
-  .history-section {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-  }
-  
-  .history-section h2 {
-    margin-bottom: 20px;
-  }
-  
-  .history-section p {
-    max-width: 600px;
-    margin-bottom: 15px;
-    line-height: 1.6;
-  }
-  /* General Styling */
-.home-container {
+/* Global Styles */
+body {
+  font-family: Arial, sans-serif;
+  background: #ffffff; /* White background for a clean look */
+  margin: 0;
+  padding: 0;
+  color: #333; /* Default text color */
+}
+
+/* Category Section */
+.category-section {
+  display: flex;
+  flex-direction: row;
+  background: #f8f8f8; /* Light background for category sections */
+  border-radius: 10px;
   padding: 20px;
+  margin: 20px 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow around categories */
+  min-height: 450px; /* Ensure categories have sufficient height */
+  position: relative;
+  margin-bottom: 6em !important;
 }
 
-/* Hero Section */
-.hero {
+
+
+.product-row {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  margin-bottom: 30px;
+  flex-direction: row;
+  overflow-x: auto;
+  gap: 15px;
+  overflow: auto; /* Allows scrolling */
+  scrollbar-width: none; /* For Firefox */
+  -ms-overflow-style: none; 
+  padding: 1em;
+  padding-bottom: 1em;
+  
 }
 
-.hero-content {
-  max-width: 50%;
-}
-
-.hero-image {
-  max-width: 45%;
-}
-
-.hero img {
-  width: 100%;
-  height: auto;
+/* Product Card */
+.product-card {
+  background: #fff;
   border-radius: 10px;
-}
-
-/* History Section */
-.history-section {
-  margin: 30px 0;
-}
-
-.history-section h2 {
-  font-size: 2rem;
-}
-
-.history-section p {
-  font-size: 1rem;
-  line-height: 1.6;
-  margin-bottom: 10px;
-}
-
-/* Ayurveda Images Section */
-.ayurveda-gallery {
-  display: flex;
-  justify-content: space-around;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
-.gallery-item {
-  width: 30%;
+  padding: 15px;
+  min-width: 21%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0px 10px 40px 2px rgba(7, 7, 7, 0.3);
   text-align: center;
+  position: relative;
+  border: 3px solid rgb(204, 204, 204);
 }
 
-.gallery-img {
+.product-card:hover {
+  transform: translateY(-5px);
+  border: 3px solid grey;
+}
+
+.product-image {
   width: 100%;
-  height: auto;
-  border-radius: 10px;
+  height: 300px; 
+  object-fit: contain; 
+  border-radius: 8px;
+  background-color: #f0f0f0; 
 }
 
-/* Featured Products Section */
-.featured-products-section {
-  text-align: center;
-  margin-top: 30px;
+.product-card h4 {
+  font-size: 1.1rem;
+  color: #003f63; /* Lighter shade of #00203F for product names */
+  margin: 10px 0;
 }
 
-.product-categories {
-  display: flex;
-  justify-content: space-around;
-  margin-top: 20px;
-  gap: 10px;
+.product-card p {
+  color: #555;
+  font-size: 0.9rem;
 }
 
-.category-link {
-  padding: 10px 20px;
-  background-color: #f2a60b;
+.product-card strong {
+  font-size: 1.2rem;
+  color: #ff6a00; /* Highlight price with a warm color */
+}
+
+.add-to-cart-btn {
+  background-color: #003f63; /* Lighter blue for buttons */
+  border: none;
+  padding: 10px 15px;
   color: white;
-  text-decoration: none;
+  font-size: 1rem;
+  font-weight: bold;
   border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
 }
 
-/* Mobile Styles */
-@media only screen and (max-width: 768px) {
-  .hero {
-    flex-direction: column;
-    text-align: center;
-  }
+.add-to-cart-btn:hover {
+  background-color: #001e34; /* Darker shade of blue on hover */
+}
 
-  .hero-content {
-    max-width: 100%;
-    margin-bottom: 20px;
-  }
+/* View All Button */
+.view-all-btn {
+  background-color: #004a72; /* Darker shade of blue for the 'View All' button */
+  border: none;
+  padding: 12px 20px;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  display: block;
+  margin: 20px auto 0;
+  transition: background-color 0.3s ease;
+}
 
-  .hero-image {
-    max-width: 100%;
-  }
+.view-all-btn:hover {
+  background-color: #001e34; /* Darker blue on hover */
+}
 
-  .history-section h2 {
-    font-size: 1.8rem;
-  }
-
-  .history-section p {
-    font-size: 0.9rem;
-  }
-
-  .ayurveda-gallery {
-    flex-direction: column;
-  }
-
-  .gallery-item {
-    width: 100%;
-  }
-
-  .product-categories {
-    flex-direction: column;
-    gap: 15px;
+/* Responsive Styles */
+@media (max-width: 1200px) {
+  .product-card {
+    min-width: 30%; /* Three cards per row on large screens */
   }
 }
+
+@media (max-width: 992px) {
+  .product-card {
+    min-width: 48%; /* Two cards per row on medium screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .product-card {
+    min-width: 48%; /* Two cards per row on tablets */
+  }
+}
+
+@media (max-width: 480px) {
+  .product-card {
+    min-width: 100%; /* One card per row on mobile */
+  }
+
+  .category-title {
+    font-size: 1.5rem; /* Slightly smaller title on mobile */
+  }
+
+  .add-to-cart-btn {
+    width: 100%; /* Make the 'Add to Cart' button full width on mobile */
+  }
+}
+
+/* Ensure Category Section Has Same Height */
+.category-section {
+  min-height: 450px; /* Set minimum height for the category sections */
+}
+
+/* Fallback image if product image is missing */
+.product-card img {
+  display: block;
+  width: 100%;
+  height: 300px; /* Keep height fixed */
+  object-fit: contain; /* Ensure the image maintains aspect ratio */
+  border-radius: 8px;
+  background: center center no-repeat;
+  background-size: cover; /* Placeholder image in case the original doesn't load */
+}
+.view-all-btn-div {
+  display: flex;
+  justify-content: center; /* Centers the button horizontally */
+  align-items: center; /* Centers the button vertically (optional, if you want it centered in both axes) */
+  margin-top: 20px; /* Adjust spacing from above elements */
+  padding-top: 1.5em;
+}
+
+/* Button Section */
+.button-section {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  padding-top: 3em;
+  text-transform: capitalize;
+}
+
+/* Category Buttons */
+.category-btn {
+  background-color: #003f63; /* Use the color palette #003f63 */
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease-in-out;
+  text-transform: capitalize; /* Capitalizes the button text */
+  min-width: 150px; /* Fixed width for buttons */
+  text-align: center; /* Centers text inside buttons */
+  white-space: nowrap; /* Prevents text from wrapping */
+  
+}
+
+/* Hover effect for buttons */
+.category-btn:hover {
+  background-color: #005f8c; /* Lighter shade of #003f63 for hover */
+  transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+/* Focus effect for accessibility */
+.category-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(0, 63, 99, 0.6); /* Subtle glow on focus */
+}
+
+/* Active effect for when button is clicked */
+.category-btn:active {
+  background-color: #0080c5; /* Darker shade for active button */
+  transform: scale(0.98); /* Shrink a bit when clicked */
+}
+
+/* Responsive Design for Smaller Screens */
+@media (max-width: 768px) {
+  .category-btn {
+    min-width: 150px; /* Ensure buttons maintain their width */
+    font-size: 14px; /* Slightly smaller font on mobile */
+  }
+}
+
+/* You can use this JavaScript approach to handle missing images */
+/* slider  */
+/* Slider Container */
+.slider {
+  position: relative;
+  width: 100%;
+  height: 800px;
+  overflow: hidden;
+  box-shadow: 10px 10px 30px 10px rgba(100, 100, 100, 0.514);
+}
+
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+
+}
+
+.slide.active {
+  opacity: 1;
+}
+
+.slide img {
+  width: 100%;
+  height: auto;
+  object-fit:cover;
+}
+
+/* Text Overlay */
+.text-overlay {
+  position: absolute;
+  bottom: 20%;
+  left: 10%;
+  transform: translateY(50%);
+}
+
+.highlight-text {
+  font-size: 3.5rem;
+  color: #fff;
+  background: linear-gradient(to right, #ff8a00, #e52e71);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: highlight 2s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Highlight Animation */
+@keyframes highlight {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Navigation Buttons */
+.nav-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 2;
+  padding: 10px 15px;
+  border-radius: 5%;
+}
+
+.nav-button.prev {
+  left: 10px;
+}
+
+.nav-button.next {
+  right: 10px;
+}
+
+.nav-button:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.catediv{
+  
+}
+
+
+/* Initial styles for the text */
+.highlight-text {
+  font-size: 3.5rem;
+  font-weight: bold;
+  position: relative;
+  overflow: hidden; /* Ensures text doesn't overflow initially */
+  opacity: 0;
+  
+  transform: translateY(100%);
+  animation: slideInFromBelow 1.5s ease-out forwards;
+}
+
+/* Keyframes for the animation */
+@keyframes slideInFromBelow {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (min-width: 1200px) {
+  .slider {
+    height: 800px; /* Large screens keep the default height */
+  }
+}
+
+/* Medium screens (tablets: 768px - 1199px) */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .slider {
+    height: 550px; /* Adjust height for tablets */
+  }
+}
+
+/* Small screens (landscape phones: 576px - 767px) */
+@media (min-width: 576px) and (max-width: 767px) {
+  .slider {
+    height: 421px; /* Adjust height for landscape phones */
+  }
+}
+
+/* Extra small screens (portrait phones: below 576px) */
+@media (max-width: 575px) {
+  .slider {
+    height: 200px; /* Adjust height for small devices */
+  }
+}
+
+.clickproduct{
+  cursor: pointer;
+}
+
+.showall{
+  position: absolute;
+    bottom: -49px;
+    right: 50%;
+    left: 45%;
+    width: 112px;
+    height: 41px;
+    background-color: #003f63;
+    border: 2px solid #003f64;
+    border-radius: 5%;
+}
+
+

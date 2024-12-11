@@ -26,13 +26,19 @@
         <div class="collapse navbar-collapse" [ngClass]="{'show': !isCollapsed}" id="navbarTogglerDemo03">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active text-white" aria-current="page" routerLink="/seller">Homeok</a>
+                    <a class="nav-link active text-white" aria-current="page" routerLink="/seller/info">Your Info</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="#">Link</a>
+                    <a class="nav-link text-white" routerLink="/seller/products">Manage Products</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" routerLink="#">About us</a>
+                    <a class="nav-link text-white" routerLink="/seller/orders">Manage Orders</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" routerLink="feedback">Feedback</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" routerLink="support">Support</a>
                 </li>
             </ul>
   

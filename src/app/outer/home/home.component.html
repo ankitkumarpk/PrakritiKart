@@ -1,57 +1,75 @@
-<div class="home-container">
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-content">
-      <h1>Welcome to Ayurveda E-Commerce</h1>
-      <p>Discover the ancient secrets of health and well-being with Ayurveda, the natural path to wellness.</p>
+<div class="sliderHome">
+  <div class="slider">
+    <div
+      class="slide"
+      *ngFor="let slide of slides; let i = index"
+      [class.active]="i === currentSlide"
+    >
+      <img [src]="slide.image" [alt]="slide.alt" />
+      <div class="text-overlay">
+        <h1 class="highlight-text">{{ slide.text }}</h1>
+      </div>
     </div>
-    <div class="hero-image">
-      <img src="https://www.shutterstock.com/image-vector/ayurveda-concept-illustration-ayurvedic-healing-600nw-2196249447.jpg" alt="Ayurveda Banner" class="banner-img" />
-    </div>
-  </section>
-
-  <!-- History Section -->
-  <section class="history-section text-center">
-    <h2>The History of Ayurveda</h2>
-    <p>
-      Ayurveda, a holistic approach to health that originated in India over 5,000 years ago, is based on the principles of balancing mind, body, and spirit.
-      Ayurveda literally translates to the "Science of Life." It promotes using herbs, natural remedies, and lifestyle practices to maintain and restore health.
-    </p>
-    <p>
-      At our Ayurveda e-commerce platform, we offer a wide range of herbal products, oils, and wellness solutions rooted in this ancient tradition, bringing
-      balance and harmony into modern life.
-    </p>
-  </section>
   
+    <!-- Navigation Arrows -->
+    <button class="nav-button prev" (click)="prevSlide()">&#10094;</button>
+    <button class="nav-button next" (click)="nextSlide()">&#10095;</button>
+  </div>
+  
+</div>
 
-  <!-- Ayurveda Images Section -->
-  <section class="ayurveda-images-section">
-    <div class="ayurveda-gallery">
-      <div class="gallery-item">
-        <img src="https://img.freepik.com/premium-photo/ayurveda-herbs-grey-background-with-copy-space-text-ayurvedic-banner_244157-6196.jpg"  alt="Ayurvedic Medicine" class="gallery-img" />
-        <p>Traditional Ayurvedic Medicine</p>
+
+<div class="catediv">
+  <div class="button-section">
+    <button (click)="filterByCategory('Arishtam')" class="category-btn">
+      Arishtam
+    </button>
+    <button (click)="filterByCategory('Bhasmam')" class="category-btn">
+      Bhasmam
+    </button>
+    <button (click)="filterByCategory('Churnam')" class="category-btn">
+      Churnam
+    </button>
+    <button (click)="filterByCategory('Ghritam')" class="category-btn">
+      Ghritam
+    </button>
+    <button (click)="filterByCategory('Granules')" class="category-btn">
+      Granules
+    </button>
+    <button (click)="filterByCategory('Tailam')" class="category-btn">
+      Tailam
+    </button>
+  </div>
+
+  <div *ngIf="filteredProducts.length > 0" class="category-section">
+    <div class="product-row">
+      <div class="product-card" *ngFor="let product of filteredProducts; let i=index" > 
+        <div class="clickproduct" (click)="goToProduct(i)" >
+        <img
+          [src]="product.images[0]?.imageUrl"
+          alt="{{ product.productName }}"
+          class="product-image"
+        />
+        <h4>{{ product.productName }}</h4>
+        <p>{{ product.description.split(' ').slice(0, 20).join(' ') +
+          (product.description.split(' ').length > 20 ? '...' : '') }}</p>
+        <p>
+          <strong>₹{{ product.price }}</strong>
+        </p>
       </div>
-      <div class="gallery-item">
-        <img src="https://iimtu.edu.in/blog/wp-content/uploads/2023/05/B.A.M.jpg" width="180"
-        height="60" alt="Herbal Remedies" class="gallery-img" />
-        <p>Herbal Remedies and Solutions</p>
-      </div>
-      <div class="gallery-item">
-        <img src="https://ayurvedafamily.com/cdn/shop/articles/Picture1_600x.png?v=1641744471" width="180"
-        height="60" alt="Ayurvedic Spa" class="gallery-img" />
-        <p>Ayurvedic Spa Treatments</p>
+        <button
+          (click)="addToCart(i , 1)"
+          class="add-to-cart-btn"
+        >
+          Add to Cart
+        </button>
+        
       </div>
     </div>
-  </section>
+    
+  </div>
 
-  <!-- Featured Products or Categories Section -->
-  <section class="featured-products-section">
-    <h2>Shop Our Ayurvedic Products</h2>
-    <p>Explore our wide range of herbal supplements, oils, teas, and more for a balanced and healthy lifestyle.</p>
-    <div class="product-categories">
-      <a routerLink="/products/herbal-supplements" class="category-link">Herbal Supplements</a>
-      <a routerLink="/products/oils" class="category-link">Oils & Balms</a>
-      <a routerLink="/products/teas" class="category-link">Ayurvedic Teas</a>
-    </div>
-  </section>
+  <div *ngIf="filteredProducts.length === 0" class="category-section no-product">
+    <p>No products available in this category.</p>
+  </div>
 </div>

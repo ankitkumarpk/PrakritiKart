@@ -1,0 +1,50 @@
+<div class="outer">
+<div class="cart-container inner">
+    <div class="cart-table" *ngIf="cartItems.length > 0; else emptyCart">
+      <!-- Table Header (Visible in desktop/tablet view) -->
+      <div class="cart-header" aria-hidden="true">
+        <div>Image</div>
+        <div>Product</div>
+        <div>Price</div>
+        <div>Rating</div>
+        <div>Quantity</div>
+        <div>Actions</div>
+      </div>
+  
+      <!-- Cart Items -->
+      <div
+        class="cart-item"
+        *ngFor="let item of cartItems; let i = index"
+      >
+        <div class="product-image" (click)="goToProduct(i)">
+          <img [src]="item.imageUrl" alt="{{ item.productName }}" />
+        </div>
+        <div class="product-name">{{ item.productName }}</div>
+        <div class="product-price">₹{{ item.price }}</div>
+        <div class="product-rating">{{ item.rating }}</div>
+        <div class="quantity-control">
+          <button (click)="updateItemQuantity(i,-1)">-</button>
+          <input type="number" [(ngModel)]="item.quantity" min="1" readonly />
+          <button (click)="updateItemQuantity(i,1)" >+</button>
+        </div>
+        <div class="actions">
+          <button class="remove" (click)="removeItemFormCart(i)">Remove</button>
+        </div>
+      </div>
+      <!-- Cart Summary -->
+      <div class="cart-summary">
+        <p>Total: ₹{{ totalAmount }}</p>
+        <button (click)="proceedToBuy(cartItems)">Buy This</button>
+      </div>
+    </div>
+  
+    <ng-template #emptyCart>
+      <p class="empty-cart-message">Your cart is empty.</p>
+    </ng-template>
+  </div>
+</div>
+
+<div class="spinner-container" *ngIf="showSpinner">
+    <mat-spinner></mat-spinner>
+</div>
+  

@@ -1,3 +1,76 @@
-<header class="header">
-    <h1>Welcome {{firstName}}</h1>
-  </header>
+<nav class="navbar navbar-expand-lg bg-custom text-white fixed-top">
+  <div class="container-fluid">
+      <a class="navbar-brand" routerLink="/">
+          <img src="assets/logo.svg" alt="Brand Logo" width="180" height="55" class="d-inline-block align-text-top" />
+      </a>
+
+      <!-- Toggler button and Cart Icon for mobile view -->
+      <div class="d-flex align-items-center">
+          <!-- Cart Icon (visible on mobile) -->
+          <!-- <a routerLink="/cart" class="d-lg-none me-2">
+              <img src="assets/cart.svg" alt="Cart" width="30" height="30" /><span>{{cartCount}}</span>
+          </a> -->
+          <!-- Toggler Button -->
+          <button
+              class="navbar-toggler"
+              type="button"
+              (click)="toggleNavbar()" 
+              aria-controls="navbarTogglerDemo03"
+              [attr.aria-expanded]="!isCollapsed"
+              aria-label="Toggle navigation"
+          >
+              <img src="assets/menu.svg" width="30" height="30" />
+          </button>
+      </div>
+
+      <div class="collapse navbar-collapse" [ngClass]="{'show': !isCollapsed}" id="navbarTogglerDemo03">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+             
+              <li class="nav-item">
+                  <a class="nav-link text-white" routerLink="/user/order">My Orders</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link text-white" routerLink="/user/address">Saved Address</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link text-white" routerLink="/user/profile">Profile</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link text-white" routerLink="/user/help">Help</a>
+              </li>
+          </ul>
+
+          <form class="d-flex me-3 search-form">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+              <button class="btn btn-search text-white" type="submit" (click)="redirectToSearch()">Search</button>
+          </form>
+
+          <!-- Cart Icon (visible on desktop) -->
+          <div class="cart-icon d-none d-lg-flex me-3">
+              <a routerLink="/cart">
+                  <img src="assets/cart.svg" alt="Cart" width="30" height="30" />({{cartCount}})
+              </a>
+          </div>
+
+          <div *ngIf="isLoggedIn; else guestLinks" class="user-profile">
+              <div class="userlogo">
+                  <button mat-button [matMenuTriggerFor]="menu">
+                      <img src="assets/user.svg" alt="User Profile" width="24" height="24" class="profile-img" />
+                      {{ name }}
+                  </button>
+              </div>
+              <mat-menu #menu="matMenu">
+                  <button mat-menu-item routerLink="/seller">Dashboard &#9874;</button>
+                  <button mat-menu-item (click)="logout()">Logout &#10140;</button>
+              </mat-menu>
+          </div>
+
+          <!-- Guest links (Login & Sign Up) -->
+          <ng-template #guestLinks>
+              <button class="btn btn-outline-primary ms-2" routerLink="login/user" type="button">Login</button>
+              <button class="btn btn-outline-primary ms-2" routerLink="signup/user" type="button">Sign Up</button>
+          </ng-template>
+      </div>
+      
+  </div>
+</nav>

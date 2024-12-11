@@ -7,25 +7,28 @@ body {
 
 .layout {
   display: grid;
-  grid-template-rows: auto 1fr auto; /* Header, Main content, Footer */
+  grid-template-rows: auto 1fr auto; 
   height: 100vh;
 }
 
 .content {
   display: flex;
   flex: 1;
+  height: auto;
+ 
 }
 
 .sidebar {
   background-color: #f0f0f0;
   padding: 20px;
-  border-right: 1px solid #ddd; /* Light border for separation */
+  border-right: 1px solid #ddd; 
 }
 
 .main-content {
   padding: 20px;
-  background-color: #fff; /* White background for main content */
-  overflow-y: auto; /* Allow scrolling if content is too long */
+  background-color: #fff; 
+  overflow-y: auto; 
+  width: 100%;
 }
 
 .footer {
@@ -65,18 +68,23 @@ a:hover {
 /* Responsive styles */
 @media (max-width: 768px) {
   .content {
-    grid-template-columns: 1fr; /* Stack sidebar and main content */
+    grid-template-columns: 1fr; 
+   
+      
   }
 
   .sidebar {
-    border-right: none; /* Remove border on smaller screens */
-    border-bottom: 1px solid #ddd; /* Add bottom border */
+    border-right: none; 
+    border-bottom: 1px solid #ddd; 
+    
   }
 
   .main-content {
     flex: 1;
     padding: 1rem;
-    flex-direction: column; /* Adjust padding on smaller screens */
+    flex-direction: column; 
+    width: 100%;
+    height: auto;
     
   }
 
@@ -88,3 +96,8 @@ a:hover {
 }
 }
 
+@media (max-width: 767px) {
+  .content {
+    margin-top: 30px !important;
+  }
+}

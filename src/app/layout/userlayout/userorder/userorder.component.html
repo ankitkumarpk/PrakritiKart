@@ -1,1 +1,28 @@
-<p>userorder works!</p>
+<div class="products-avl text-center text-white">
+    <h2>Your Orders</h2>
+</div>
+
+<div *ngIf="orderedItems.length > 0; else noProducts" class="order-items-container">
+    <div class="order-card" *ngFor="let product of orderedItems">
+        <div class="order-card-img" (click)="goToProduct(product.productId)">
+            <img [src]="product.productImage" alt="Product Image" />
+        </div>
+        <div class="order-card-details">
+            <h4 class="product-name">{{ product.productName }}</h4>
+            <p class="product-category">{{ product.category }}</p>
+            <p class="product-price">Total Price:  ₹{{ product.price }}</p>
+            <p class="product-quantity">Quantity: {{ product.quantity }}</p>
+            <p class="product-status">
+                Status:<span class="productStatus"> {{ product.status }}</span>
+            </p>
+            <p><b>Ordered At: {{product.createdAt | date:'medium'}}</b></p>
+            <button class="btn-cancel">
+                Cancel Order
+            </button>
+        </div>
+    </div>
+</div>
+
+<ng-template #noProducts>
+    <p class="text-center text-muted">No products available.</p>
+</ng-template>

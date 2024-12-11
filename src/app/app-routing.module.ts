@@ -19,6 +19,10 @@ import { SellerinfoComponent } from './layout/sellerlayout/sellerinfo/sellerinfo
 import { SupportComponent } from './layout/sellerlayout/support/support.component';
 import { SellerheaderComponent } from './layout/sellerlayout/sellerheader/sellerheader.component';
 import { SellerfooterComponent } from './layout/sellerlayout/sellerfooter/sellerfooter.component';
+import { ProductpageComponent } from './layout/outerlayout/productpage/productpage.component';
+import { SearchpageComponent } from './layout/outerlayout/searchpage/searchpage.component';
+import { CartpageComponent } from './layout/outerlayout/cartpage/cartpage.component';
+import { CheckoutpageComponent } from './layout/userlayout/checkoutpage/checkoutpage.component';
 
 const routes: Routes = [
   {
@@ -32,6 +36,10 @@ const routes: Routes = [
       { path: 'contact', component: ContactComponent },
       { path: 'login/user', component: LoginComponent },
       { path: 'signup/user', component: SignupComponent },
+      {path:'product/:id', component:ProductpageComponent},
+      {path: 'search', component:SearchpageComponent},
+      {path:'cart', component:CartpageComponent},
+      {path:'checkout', component:CheckoutpageComponent},
     ],
   },
 
@@ -50,6 +58,9 @@ const routes: Routes = [
       { path: 'home', component: HomeComponent },
       { path: 'about', component: AboutComponent },
       { path: 'contact', component: ContactComponent },
+      {path:'cart', component:CartpageComponent},
+      {path: 'search', component:SearchpageComponent},
+      
     ],
   },
 

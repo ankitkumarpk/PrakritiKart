@@ -8,6 +8,7 @@ import {
 import { Signup } from '../../models/signup.model';
 import { LoginService } from '../../services/auth/login.service';
 import { SingupService } from '../../services/auth/singup.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-signup',
@@ -30,7 +31,8 @@ export class SignupComponent implements OnInit {
 
   constructor(
     private signupService: SingupService,
-    private loginService: LoginService
+    private loginService: LoginService,
+    private toastr: ToastrService
   ) {}
 
   onSubmit() {

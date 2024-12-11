@@ -114,3 +114,18 @@ h2 {
     margin-bottom: 10px; /* Add some space between stacked cards */
   }
 }
+
+.outer {
+  width: 100%; /* Full width */
+  display: flex; /* Flexbox for centering */
+  justify-content: center; /* Center inner horizontally */
+}
+
+.inner {
+  width: 90%; /* Set a specific width for the inner div */
+ 
+  padding: 20px; /* Optional: add some padding for spacing */
+ margin-top: 4em !important;
+ margin-bottom: 4em !important;
+ border:1px solid rgba(100, 100, 100, 0.479);
+}

@@ -14,7 +14,7 @@ export class SellerinfoComponent implements OnInit {
   imageError: string | null = null;
   showForm = false;
   seller: any;
-  isLoading = true;
+  isLoaded = false;
 
   constructor(private fb: FormBuilder, private appservice: AppserviceService) {
     this.sellerForm = this.fb.group({
@@ -78,6 +78,7 @@ export class SellerinfoComponent implements OnInit {
           this.sellerForm.reset();
           this.profileImageFile = null;
           this.showForm = false;
+          this.getSellerInfo();
         },
         error: (error) => {
           console.error('Error submitting seller information:', error);
@@ -103,11 +104,13 @@ export class SellerinfoComponent implements OnInit {
       (data) => {
         this.seller = data;
         this.sellerForm.patchValue(this.seller);
-        this.isLoading = false;
+        if (data.sellerId <= 0) {
+          this.isLoaded = true;
+        }
       },
       (error) => {
         console.error('Error fetching seller details', error);
-        this.isLoading = false;
+        this.isLoaded = false;
       }
     );
   }

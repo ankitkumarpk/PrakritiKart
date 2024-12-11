@@ -2,13 +2,37 @@
 /* @import "~bootstrap/dist/css/bootstrap.min.css"; */
 @import '@angular/material/prebuilt-themes/indigo-pink.css';
 * {
-    margin: 0 !important; /* Remove margins from all elements */
+    
     padding: 0; 
     scroll-behavior: smooth;
     /* Optionally remove padding */
 }
 body {
-    padding-top: 60px; 
+    padding-top: 60px;    
+  }
+
+  @media (width:720px) {
+    .toast-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: fixed !important;
+        top: 20% !important;
+        left: 60% !important;
+        transform: translate(-50%, -50%) !important;
+      }
     
   }
+  .toast-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed !important;
+    top: 20% !important;
+    left: 90% !important;
+    transform: translate(-50%, -50%) !important;
+  }
+  
   

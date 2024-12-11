@@ -37,8 +37,8 @@
             </ul>
   
             <form class="d-flex me-3 search-form">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-                <button class="btn btn-search text-white" type="submit">Search</button>
+                <input class="form-control me-2" type="search" placeholder="Search any product" aria-label="Search" name="name" [(ngModel)]="searchQuery" />
+                <button class="btn btn-search text-white" (click)="redirectToSearch()">Search</button>
             </form>
 
             <!-- Cart Icon (visible on desktop) -->

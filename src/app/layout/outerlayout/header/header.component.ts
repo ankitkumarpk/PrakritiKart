@@ -1,24 +1,35 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../../../services/auth/login.service';
 import { Router } from '@angular/router';
+import { AppserviceService } from '../../../services/appservice/appservice.service';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
+  searchQuery: string = '';
   isLoggedIn = false;
-  cartCount = 2;
-  constructor(private loginService: LoginService, private router: Router) {
-   
-  }
-  firstName=localStorage.getItem('firstName');
+  cartCount: number = 0;
+  allCartItems: [] = [];
+
+  constructor(
+    private loginService: LoginService,
+    private router: Router,
+    private appService: AppserviceService
+  ) {}
+  firstName = localStorage.getItem('firstName');
   name = this.firstName?.toLocaleUpperCase();
-  
 
   ngOnInit(): void {
     this.isLoggedIn = !!this.loginService.getToken();
+    this.appService.cartCount$.subscribe((count) => {
+      this.cartCount = count;
+    });
+
+    // Initialize the cart count
+    this.getAllCartCount();
   }
 
   logout(): void {
@@ -28,11 +39,23 @@ export class HeaderComponent implements OnInit {
     localStorage.removeItem('userName');
     localStorage.removeItem('userId');
   }
-  
+
   isCollapsed = true;
 
   toggleNavbar() {
     this.isCollapsed = !this.isCollapsed;
   }
-  
+  redirectToSearch() {
+    if (this.searchQuery.trim()) {
+      this.router.navigate(['/search'], {
+        queryParams: { name: this.searchQuery },
+      });
+    }
+  }
+
+  getAllCartCount() {
+    this.appService.getAllCartItems().subscribe((response: any[]) => {
+      this.appService.updateCartCount(response.length); // Sync cart count with service
+    });
+  }
 }

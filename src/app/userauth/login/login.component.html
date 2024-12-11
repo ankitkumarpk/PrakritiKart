@@ -1,6 +1,6 @@
-<div class="container">
+<div class="outer">
+<div class="container inner">
   <h2>Login</h2>
-
   <!-- Display error message if loginFailed is true -->
   <div *ngIf="loginFailed" class="alert alert-danger" role="alert">
     Login email or password is incorrect or invalid User Type.
@@ -75,4 +75,10 @@
       </p>
     </div>
   </form>
+</div>
+</div>
+
+
+<div class="spinner-container" *ngIf="showSpinner">
+  <mat-spinner></mat-spinner>
 </div>

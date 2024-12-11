@@ -4,8 +4,11 @@
   <!-- Main Content: Sidebar and Router Outlet -->
   <div class="content">
     <!-- Sidebar (1/4 width on larger screens) -->
-    <div class="sidebar">
+    <div  class="sidebar">
+      <button class="btn btn-primary mobile-menu-btn" (click)="showSideBar()">Menu</button>
+      <div *ngIf="showMenu">
       <app-usersidebar></app-usersidebar>
+    </div>
     </div>
 
     <!-- Router Outlet (3/4 width on larger screens) -->

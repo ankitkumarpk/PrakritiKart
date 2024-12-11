@@ -7,6 +7,11 @@ import { Router } from '@angular/router';
   styleUrl: './userlayout.component.css'
 })
 export class UserlayoutComponent {
+ showMenu:boolean = true;
 
+showSideBar()
+{
+  this.showMenu = !this.showMenu;
+}
 
 }

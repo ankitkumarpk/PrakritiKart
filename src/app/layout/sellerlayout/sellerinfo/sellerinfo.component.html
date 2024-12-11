@@ -1,52 +1,36 @@
-<!-- seller-info.component.html -->
- <div *ngIf="!isLoading">
-<div *ngIf="!showForm">
-  <button class="btn btn-primary" (click)="toggleForm()">
-    Add Seller Info
-  </button>
+<!-- Add Seller Button -->
+ <div *ngIf="!isLoaded">
+<div *ngIf="!showForm" class="add-seller-btn">
+  <button class="btn btn-primary" (click)="toggleForm()">Add Seller Info</button>
 </div>
 </div>
 
+<!-- Seller Info Form -->
 <div *ngIf="showForm" class="container mt-5">
   <h2 class="text-center">Seller Information</h2>
   <form [formGroup]="sellerForm" (ngSubmit)="onSubmit()" novalidate>
     <!-- Store Name Field -->
     <div class="mb-3">
       <label for="storeName" class="form-label">Store Name</label>
-      <input
-        type="text"
-        id="storeName"
-        class="form-control"
-        formControlName="storeName"
-      />
+      <input type="text" id="storeName" class="form-control" formControlName="storeName" />
       <div *ngIf="sellerForm.get('storeName')?.invalid && sellerForm.get('storeName')?.touched" class="text-danger">
         Store Name is required.
       </div>
     </div>
-    
-<!-- Image -->
 
-<div class="form-group">
-  <label for="profileImg">Profile Image</label>
-  <div class="profile-image-container">
-    <img *ngIf="sellerForm.value.ProfileImg" [src]="sellerForm.value.ProfileImg" class="profile-image" />
-    <input
-      type="file"
-      id="profileImg"
-      accept="image/*"
-      (change)="onImageSelected($event)"
-      class="form-control-file"
-    />
-  </div>
-</div>
+    <!-- Image Field -->
+    <div class="form-group">
+      <label for="profileImg">Profile Image</label>
+      <div class="profile-image-container">
+        <img *ngIf="sellerForm.value.ProfileImg" [src]="sellerForm.value.ProfileImg" class="profile-image" />
+        <input type="file" id="profileImg" accept="image/*" (change)="onImageSelected($event)" class="form-control-file" />
+      </div>
+    </div>
+
     <!-- Description Field -->
     <div class="mb-3">
       <label for="description" class="form-label">Description</label>
-      <textarea
-        id="description"
-        class="form-control"
-        formControlName="description"
-      ></textarea>
+      <textarea id="description" class="form-control" formControlName="description"></textarea>
       <div *ngIf="sellerForm.get('description')?.invalid && sellerForm.get('description')?.touched" class="text-danger">
         Description is required.
       </div>
@@ -55,12 +39,7 @@
     <!-- Contact Email Field -->
     <div class="mb-3">
       <label for="contactEmail" class="form-label">Contact Email</label>
-      <input
-        type="email"
-        id="contactEmail"
-        class="form-control"
-        formControlName="contactEmail"
-      />
+      <input type="email" id="contactEmail" class="form-control" formControlName="contactEmail" />
       <div *ngIf="sellerForm.get('contactEmail')?.invalid && sellerForm.get('contactEmail')?.touched" class="text-danger">
         Please enter a valid email address.
       </div>
@@ -69,12 +48,7 @@
     <!-- Contact Phone Field -->
     <div class="mb-3">
       <label for="contactPhone" class="form-label">Contact Phone</label>
-      <input
-        type="tel"
-        id="contactPhone"
-        class="form-control"
-        formControlName="contactPhone"
-      />
+      <input type="tel" id="contactPhone" class="form-control" formControlName="contactPhone" />
       <div *ngIf="sellerForm.get('contactPhone')?.invalid && sellerForm.get('contactPhone')?.touched" class="text-danger">
         Phone number is required and must be numeric.
       </div>
@@ -83,12 +57,7 @@
     <!-- Business Registration Number Field -->
     <div class="mb-3">
       <label for="businessRegistrationNumber" class="form-label">Business Registration Number</label>
-      <input
-        type="text"
-        id="businessRegistrationNumber"
-        class="form-control"
-        formControlName="businessRegistrationNumber"
-      />
+      <input type="text" id="businessRegistrationNumber" class="form-control" formControlName="businessRegistrationNumber" />
       <div *ngIf="sellerForm.get('businessRegistrationNumber')?.invalid && sellerForm.get('businessRegistrationNumber')?.touched" class="text-danger">
         Business Registration Number is required.
       </div>
@@ -97,12 +66,7 @@
     <!-- Ayush License Field -->
     <div class="mb-3">
       <label for="ayushLicense" class="form-label">Ayush License</label>
-      <input
-        type="text"
-        id="ayushLicense"
-        class="form-control"
-        formControlName="ayushLicense"
-      />
+      <input type="text" id="ayushLicense" class="form-control" formControlName="ayushLicense" />
       <div *ngIf="sellerForm.get('ayushLicense')?.invalid && sellerForm.get('ayushLicense')?.touched" class="text-danger">
         Ayush License is required.
       </div>
@@ -111,12 +75,7 @@
     <!-- GST Number Field -->
     <div class="mb-3">
       <label for="gstNumber" class="form-label">GST Number</label>
-      <input
-        type="text"
-        id="gstNumber"
-        class="form-control"
-        formControlName="gstNumber"
-      />
+      <input type="text" id="gstNumber" class="form-control" formControlName="gstNumber" />
       <div *ngIf="sellerForm.get('gstNumber')?.invalid && sellerForm.get('gstNumber')?.touched" class="text-danger">
         GST Number is required.
       </div>
@@ -129,19 +88,15 @@
     </div>
   </form>
 </div>
-
+<br><br>
 <!-- Profile Table -->
+<div class="profile-header">
+ <h2 class="text-white">Your Information</h2></div> <br><br>
 <div class="table-container">
   <div class="profile-card">
     <div class="profile-header">
       <div class="profile-img-container">
-        <img
-          *ngIf="seller?.profileImg"
-          [src]="seller.profileImg"
-          alt="Seller Profile"
-          class="profile-image"
-        />
-        
+        <img *ngIf="seller?.profileImg" [src]="seller.profileImg" alt="Seller Profile" class="profile-image" />
       </div>
       <h3 class="text-center">{{ seller?.storeName }}</h3>
       <p class="text-center">{{ seller?.description }}</p>
@@ -149,27 +104,13 @@
 
     <div class="profile-details">
       <table class="profile-table">
-        <tr>
-          <td><strong>Email:</strong> {{ seller?.contactEmail }}</td>
-        </tr>
-        <tr>
-          <td><strong>Phone:</strong> {{ seller?.contactPhone }}</td>
-        </tr>
-        <tr>
-          <td><strong>Business Registration:</strong> {{ seller?.businessRegistrationNumber }}</td>
-        </tr>
-        <tr>
-          <td><strong>Ayush License:</strong> {{ seller?.ayushLicense }}</td>
-        </tr>
-        <tr>
-          <td><strong>GST Number:</strong> {{ seller?.gstNumber }}</td>
-        </tr>
-        <tr>
-          <td><strong>Rating:</strong> {{ seller?.rating }} / 5</td>
-        </tr>
-        <tr>
-          <td><strong>Total Sales:</strong> {{ seller?.totalSales }}</td>
-        </tr>
+        <tr><td><strong>Email:</strong> {{ seller?.contactEmail }}</td></tr>
+        <tr><td><strong>Phone:</strong> {{ seller?.contactPhone }}</td></tr>
+        <tr><td><strong>Business Registration:</strong> {{ seller?.businessRegistrationNumber }}</td></tr>
+        <tr><td><strong>Ayush License:</strong> {{ seller?.ayushLicense }}</td></tr>
+        <tr><td><strong>GST Number:</strong> {{ seller?.gstNumber }}</td></tr>
+        <tr><td><strong>Rating:</strong> {{ seller?.rating }} / 5</td></tr>
+        <tr><td><strong>Total Sales:</strong> {{ seller?.totalSales }}</td></tr>
       </table>
     </div>
   </div>

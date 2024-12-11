@@ -1,0 +1,74 @@
+<div class="mainpage">
+<h2 class="text-center">Checkout Now</h2>
+<div class="outer">
+<div class="checkout-container inner " >
+
+
+  <!-- Show loading indicator -->
+  <div *ngIf="productsData.length === 0" class="loading">Loading...</div>
+
+  <!-- Display product details -->
+  
+  <div *ngIf="productsData.length > 0" class="product-list">
+    <div *ngFor="let product of productsData" class="product-card">
+      <div class="product-image">
+        <img class="product-img" [src]="product?.images[0]?.imageUrl || 'default-image.jpg'" alt="{{ product?.productName }}" />
+      </div>
+      <div class="product-info">
+        <div class="info-row">
+          <span class="label">Product Name:</span>
+          <span>{{ product?.productName }}</span>
+        </div>
+        <div class="info-row">
+          <span class="label">Product ID:</span>
+          <span>{{ product?.productId }}</span>
+        </div>
+        <div class="info-row">
+          <span class="label">Quantity:</span>
+          <span>{{ product?.quantity }}</span>
+        </div>
+        <div class="info-row">
+          <span class="label">Price per Item:</span>
+          <span>₹{{ product?.price | number: '1.0-2' }}</span>
+        </div>
+        <div class="info-row">
+          <span class="label">Total Price:</span>
+          <span><strong>₹{{ product?.price * product?.quantity | number: '1.0-2' }}</strong></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+
+  <!-- Proceed to payment -->
+</div>
+</div>
+<!-- Display total amount -->
+ 
+<div class="total mt-2" *ngIf="productsData.length > 0">
+  <h3>Total Amount: ₹{{ totalAmount | number: '1.0-2' }}</h3>
+</div>
+<div class="payment-button-container text-right mb-5">
+  <button (click)="createOrder()" [disabled]="totalAmount === 0" class="payment-button ">Proceed to Payment</button>
+</div>
+
+</div>
+
+<!-- Modal for Order Placed Success -->
+<div *ngIf="isOrderSuccess && showModal" class="modal success-modal">
+  <div class="modal-content">
+    <h2> Order Placed Successfully!</h2>
+    <p>Your order <b>#{{placeOrderId}}</b> has been placed successfully. Taking to the Orders page....{{counter}}</p>
+    
+  </div>
+</div>
+
+<!-- Modal for Order Placed Failure -->
+<div *ngIf="!isOrderSuccess && showModal" class="modal failure-modal">
+  <div class="modal-content">
+    <h2>Order Failed!</h2>
+    <p>Something went wrong. Please try again.</p>
+  </div>
+</div>
+

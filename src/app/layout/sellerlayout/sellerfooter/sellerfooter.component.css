@@ -66,6 +66,10 @@ footer ul {
 .footer-icons a:hover {
     color: #33c4b3;
 }
+.row{
+    display: flex;
+    justify-content: space-between;
+}
 
 /* Responsive Adjustments */
 @media (max-width: 576px) {
